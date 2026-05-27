@@ -1,0 +1,14 @@
+{
+  "name": "entrega1-backend",
+  "version": "1.0.0",
+  "description": "API REST para Entrega 1 - Integración Continua con Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

@@ -1,0 +1,56 @@
+# ====================================================
+# Docker Compose - Entrega 1 - Semana 3
+# Orquesta dos contenedores comunicados entre sí:
+#   - backend  (Node.js + Express)  -> API REST
+#   - frontend (React + Nginx)      -> Interfaz web con proxy reverso
+# Ambos servicios viven en la red 'red-entrega1', lo que permite
+# que se descubran por nombre de servicio (DNS interno de Docker).
+# ====================================================
+version: "3.9"
+
+services:
+  # ------- Servicio Backend -------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: entrega1-backend
+    ports:
+      - "4000:4000"     # Mapeo opcional al host para pruebas directas
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    networks:
+      - red-entrega1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:4000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ------- Servicio Frontend -------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # En el navegador del usuario las llamadas van a /api/, que Nginx
+        # redirige internamente al contenedor backend.
+        REACT_APP_API_URL: ""
+    container_name: entrega1-frontend
+    ports:
+      - "8080:80"       # La aplicación queda accesible en http://localhost:8080
+    depends_on:
+      - backend         # Asegura que el backend inicie primero
+    networks:
+      - red-entrega1
+    restart: unless-stopped
+
+# ------- Red personalizada (bridge) -------
+# Crea un dominio de red aislado donde los contenedores se ven entre sí
+# por nombre de servicio (backend / frontend).
+networks:
+  red-entrega1:
+    driver: bridge
+    name: red-entrega1

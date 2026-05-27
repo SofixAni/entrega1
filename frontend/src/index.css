@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.header {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+  color: #1e3c72;
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.header .subtitle {
+  color: #666;
+  font-size: 15px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.status-ok {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  color: #1e3c72;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #2a5298;
+  padding-bottom: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: #666;
+  font-weight: 500;
+}
+
+.info-value {
+  color: #1e3c72;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.estudiantes-list {
+  list-style: none;
+}
+
+.estudiante-item {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border-left: 4px solid #2a5298;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.estudiante-info strong {
+  color: #1e3c72;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.estudiante-info span {
+  color: #666;
+  font-size: 13px;
+}
+
+.btn-eliminar {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.btn-eliminar:hover {
+  background: #c82333;
+}
+
+.form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.form-container h2 {
+  color: #1e3c72;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 2px solid #2a5298;
+  padding-bottom: 10px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px auto;
+  gap: 10px;
+  align-items: end;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group label {
+  display: block;
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2a5298;
+}
+
+.btn-agregar {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  height: 41px;
+}
+
+.btn-agregar:hover {
+  background: #218838;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin-top: 30px;
+  padding: 20px;
+}
